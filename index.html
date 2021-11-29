@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>TensorFlow.js: Tuberculosis Detector</title>
+		<title>โรคปอดบวม-ปอดอักเสบ</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Use the power of Machine Learning to diagnose TB from chest x-rays.">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,6 +12,10 @@
 			body {
 				min-height: 75rem;
 				padding-top: 4.5rem;
+			}
+
+			li{
+				font-size: 2rem;
 			}
 
 			.bd-placeholder-img {
@@ -31,7 +35,7 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="/index.html">Tuberculosis Detector</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -42,37 +46,44 @@
 					<a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
 				</li>
 			</div>
-		</nav>
+		</nav> -->
 		
-		<main role="main" class="container mt-5">
+		<main role="main" style="width: 100%;">
 			<div class="row">
 				<div class="col-12">
-					<div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">Loading Model</div>
+					<center>
+						<div style="font-size: 2.5rem;margin-bottom: 2rem;">โปรแกรมคำนวณโอกาสเป็นปอดบวม-ปอดอักเสบ (Pneumonia) จากภาพฟิล์ม X-ray</div>
+					</center>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-6">
-					<input id="image-selector" class="form-control border-0" type="file">
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col-12">
+						<div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">Loading Model</div>
+					</div>
 				</div>
-				<div class="col-6">
-					<button id="predict-button" class="btn btn-primary float-right">Predict</button>
+				<div class="row">
+					<div class="col-6">
+						<input id="image-selector" class="form-control border-0" type="file">
+					</div>
+					<div class="col-6">
+						<button id="predict-button" class="btn btn-primary float-right">Predict</button>
+					</div>
 				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-6">
-					<h2 class="ml-3">Image</h2>
-					<img id="selected-image" class="ml-3" width="250" alt=""> 
-				</div>
-				<div class="col-6">
-					<h2 class="ml-3">Predictions</h2>
-					<ol id="prediction-list"></ol>
+				<hr>
+				<div class="row">
+					<div class="col-6">
+						<h2 class="ml-3">Image</h2>
+						<img id="selected-image" class="ml-3" width="250" alt=""> 
+					</div>
+					<div class="col-6">
+						<h2 class="ml-3">Predictions</h2>
+						<ol id="prediction-list"></ol>
+					</div>
 				</div>
 			</div>
 		</main>
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>

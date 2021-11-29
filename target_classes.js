@@ -1,4 +1,4 @@
 MULTICLASS = {
-  0: "pokkati",
-  1: "pen",
+  0: "Normal",
+  1: "Pneumonia",
 }

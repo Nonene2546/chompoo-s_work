@@ -38,10 +38,11 @@ $("#predict-button").click(async function () {
 		.resizeNearestNeighbor([350,350]) // change the image size
 		.expandDims()
 		.toFloat()
-		.div(tf.scalar(255.0))// RGB -> BGR
+		.div(tf.scalar(255.0))//convert to gray
 	let binpredict = await binmodel.predict(tensor).data();
+	console.log(binpredict)
 	$('#prediction-list').empty()
-	$('#prediction-list').append(`<li>pneumonia: ${binpredict[0].toFixed(6)}</li>`)
+	// $('#prediction-list').append(`<li>pneumonia: ${binpredict[0].toFixed(6)}</li>`)
 
 	let multipredicts = await multimodel.predict(tensor).data();
 	console.log(multipredicts)
